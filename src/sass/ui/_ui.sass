@@ -1,5 +1,6 @@
 body
-  font-family: 'Open Sans', sans-serif
+  font-family: 'Roboto Condensed', sans-serif
+  background: #000
   
 .logo
   position: absolute
@@ -7,6 +8,9 @@ body
   left: 40px
   display: flex
   align-items: center
+  +r(767)
+    flex-direction: column
+    position: static
   img
     width: 300px
   p
@@ -14,25 +18,35 @@ body
     font-size: 16px
     width: 40%
     margin-left: 20px
+    font-style: normal
+    font-weight: 700
+    +r(767)
+      width: 100%
+      font-size: 20px
+      margin-top: 20px
+    
 .coming
   background: #000
   width: 100%
   height: 100vh
-  overflow: hidden
   // transform: translateY(-100%)
   padding: 50px
+  +r(767)
+    height: 100%
+    padding: 10px
   &__text
     float: right
     text-align: right
     perspective: 100vw
     animation: j 2s
-    overflow: scroll
+    +r(767)
+      float: none
     p
       color: #ffffff
       cursor: pointer
       font-size: 50px
       text-transform: uppercase
-      font-weight: 800
+      font-weight: 700
       margin-bottom: 10px
       transform: rotateY(-45deg) translateZ(0) scale(1)
       transform-origin: right center
@@ -40,6 +54,10 @@ body
       will-change: transform
       transition: transform 1.5s cubic-bezier(.075,.82,.165,1)
       animation: k 2s
+      +r(767)
+        transform: rotateY(-15deg) translateZ(0) scale(1)
+        font-size: 30px
+        animation: c 2s !important
       a
         text-decoration: none
         color: inherit
@@ -71,3 +89,15 @@ body
     visibility: visible
     opacity: 1
     transform: rotateY(-45deg) translateZ(0) scale(1)
+
+
+@keyframes c
+  0%
+    visibility: visible
+    opacity: 0
+    transform: rotateY(-100deg) translateZ(0) scale(1)
+
+  to
+    visibility: visible
+    opacity: 1
+    transform: rotateY(-15deg) translateZ(0) scale(1)
